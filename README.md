@@ -6,7 +6,7 @@ Look at the picture below. It shows eye movements and fixations while reading id
 
 ![Gaze plots for underscore and camel-case naming styles](images/eyetracking.jpg)
 
-Now, think about variables in PHP. They all have dollar sign prefix as their [sigil](https://en.wikipedia.org/wiki/Sigil_(computer_programming). I do not have a proof and I haven't done any eye-tracking experiments, but I suspect that those dollar signs increase mental parsing times because they do look like a letter `S` and you have to make some additional effort so separate them from proper variable names. *However*, dollar signs help both interpreter and the programmer to quickly find variables in the source code. Do not underestimate this. This single symbol might be better than syntax colouring.
+Now, think about variables in PHP. They all have dollar sign prefix as their [sigil](https://en.wikipedia.org/wiki/Sigil_(computer_programming)). I do not have a proof and I haven't done any eye-tracking experiments, but I suspect that those dollar signs increase mental parsing times because they do look like a letter `S` and you have to make some additional effort so separate them from proper variable names. *However*, dollar signs help both interpreter and the programmer to quickly find variables in the source code. Do not underestimate this. This single symbol might be better than syntax colouring.
 
 I do propose some alternative syntax styling which helps with visually separating dollars from variable names while keeping them visible to ease finding variables in the code.
 
