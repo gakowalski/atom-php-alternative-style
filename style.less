@@ -1,0 +1,17 @@
+/*
+* Add this to your own Atom stylesheet.
+* File -> Settings -> click on the link "your stylesheet" under "Choose a theme" title.
+*/
+
+span.syntax--punctuation.syntax--definition.syntax--variable.syntax--php {
+  color: lime;
+}
+
+span.syntax--punctuation.syntax--definition.syntax--variable.syntax--php::after,
+span.syntax--variable.syntax--other.syntax--php+span.syntax--punctuation.syntax--definition.syntax--variable.syntax--php::before {
+  content: '\a0';
+}
+
+span.syntax--variable.syntax--other.syntax--php+span.syntax--punctuation.syntax--definition.syntax--variable.syntax--php::after {
+  content: '';
+}
