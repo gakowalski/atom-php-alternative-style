@@ -1,5 +1,7 @@
 <?php
 
+/* dollar sign examples */
+
 $var1 = 1;
 
 $var_2 = 2;
@@ -29,3 +31,13 @@ function func_2($v1, $v2) { }
 function func_3($v1, $v2, $v3) { }
 
 function func_4($v1, $v2 = array(), $v3, $v4 = false) { }
+
+/* assingment examples */
+
+$eq_one_space = 2;
+
+$eq_no_space =1;
+
+// this one is tricky, try to place cursor at the end of the line!
+$eq_new_line =
+2;
