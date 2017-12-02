@@ -41,3 +41,12 @@ $eq_no_space =1;
 // this one is tricky, try to place cursor at the end of the line!
 $eq_new_line =
 2;
+
+// test for issue #1, += should NOT be converted to ≔
+$var1 += $var1; // should be $var1 += $var1;
+$var1 -= $var1; // should be $var1 -= $var1;
+$var1 /= $var1; // should be $var1 /= $var1;
+$var1 *= $var1; // should be $var1 *= $var1;
+$var1 |= $var1; // should be $var1 |= $var1;
+$var1 &= $var1; // should be $var1 &= $var1;
+$var1 ^= $var1; // should be $var1 ^= $var1;
