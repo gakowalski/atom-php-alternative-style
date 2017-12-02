@@ -24,6 +24,8 @@ After applying new CSS rules dollar signs sligthly change their colour and becom
 
 ### Assignment operator
 
+**⚠ DISABLED DUE TO PROBLEMS WITH COMBINED OPERATORS ⚠**
+
 This is minor change but I really like it (maybe because I rembemer glorious times of programming in Pascal). I propose to visually change `=` to proper assignment sign `≔`. I think it looks really nice and might help to visually catch improper operator in `if` statements.
 
 ## Try this yourself!
@@ -31,3 +33,7 @@ This is minor change but I really like it (maybe because I rembemer glorious tim
 Add content of [style.less](style.less) to your own Atom stylesheet (File -> Settings -> click on the link "your stylesheet" under "Choose a theme" title), *save changes* and open [examples.php](examples.php). Then open some true production source code *not* written by you and look around, make some edits.
 
 In actual editing work you might need some time to adapt to "automatic" space after dollar and after array closing bracket. Try to delete closing square bracket in `$var_9` example. I don't know at this time how to make this more intuitive. There is another problem with assingment sign, see `$eq_new_line` example.
+
+## Try with ligatures!
+
+This alternative styling works fine with [Fira Code](https://github.com/tonsky/FiraCode) - a monotype font with programming ligatures which changes `->`, `=>`, `==`, `===` and other specific character groups into nice looking single character symbols.
