@@ -56,12 +56,11 @@ Open Command Palette (CTRL+SHIFT+P) and find "Open Settings (JSON)". Then add th
 ```json
 "editor.tokenColorCustomizations": {
     "textMateRules": [
-    {
-        "scope": "punctuation.definition.variable.php",
-        "settings": {
-            "foreground": "#000",   // whatever hex color you want
-            "fontStyle": ""
-            // intellisense in the `""` (CTRL+Space) will tell what properities are supported
+        {
+            "scope": "punctuation.definition.variable.php",
+            "settings": {
+                "foreground": "#000000",
+                "fontStyle": ""
             }
         }
     ]
