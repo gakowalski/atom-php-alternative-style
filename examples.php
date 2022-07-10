@@ -32,17 +32,17 @@ function func_3($v1, $v2, $v3) { }
 
 function func_4($v1, $v2 = array(), $v3, $v4 = false) { }
 
-/* assingment examples */
+/* assingment examples for some experiments */
 
 $eq_one_space = 2;
 
 $eq_no_space =1;
 
-// this one is tricky, try to place cursor at the end of the line!
+// this one is tricky in Atom, try to place cursor at the end of the line and see where it appears!
 $eq_new_line =
 2;
 
-// test for issue #1, += should NOT be converted to ≔
+// ligatures: test for issue #1, += should NOT be converted to ≔
 $var1 += $var1; // should be $var1 += $var1;
 $var1 -= $var1; // should be $var1 -= $var1;
 $var1 /= $var1; // should be $var1 /= $var1;

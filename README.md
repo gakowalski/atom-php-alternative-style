@@ -1,6 +1,6 @@
-# PHP alternative syntax styling for Atom
+# Separating dollar sign from PHP variable name in Atom and Visual Studio Code
 
-## Introduction
+## Introduction - why to separate?
 
 Look at the picture below. It shows eye movements and fixations while reading identifiers in `under_score` or `camelCase` style. As you see, `camelCase` introduces a lot of visual confusion and additional work. Larger circles indicate increased mental parsing time needed to process the joined word. Picture is taken from [Extended Models on The Impact of Identifier Style on Effort and Comprehension](http://www.cs.loyola.edu/~binkley/papers/tr-loy110720.pdf) (2012) by Binkley, Davis, Lawrie, Maletic, Morell, Shariff.
 
@@ -10,30 +10,70 @@ Now, think about variables in PHP. They all have dollar sign prefix as their [si
 
 I do propose some alternative syntax styling which helps with visually separating dollars from variable names while keeping them visible to ease finding variables in the code.
 
-## Original dollar styling
+Original Atom styling | After changing color and space offset
+:-------------------------:|:-------------------------:
+![Original Atom styling](images/before.png)  |  ![New Atom styling](images/after.png)
 
-![Original Atom styling](images/before.png)
+In my opinion, it reduces mental strain and is much more aesthethic and pleasurable to work with.
 
-## New dollar styling
+## What is possible in editors / IDEs
 
-After applying new CSS rules dollar signs sligthly change their colour and become separated from variable name by a single space:
+Improvement | Atom | Visual Studio Code
+:-------------------------:|:-------------------------:|:-------------------------:
+dollar color change | yes | yes
+font style change | yes | yes
+adding space between dollar and variable name | yes | no
 
-![New Atom styling](images/after.png)
+Atom is much more flexible than VSC. You can change almost any CSS property of the dollar sign. You can even use `::before` and `::after` to completely change it to any other character.
 
-## Other
+## Atom
 
-### Assignment operator
+Add this to your own Atom stylesheet (File -> Settings -> click on the link "your stylesheet" under "Choose a theme" title), save changes and open [examples.php](examples.php):
 
-**⚠ DISABLED DUE TO PROBLEMS WITH COMBINED OPERATORS ⚠**
+```less
+span.syntax--punctuation.syntax--definition.syntax--variable.syntax--php {
+  color: brown;
+}
 
-This is minor change but I really like it (maybe because I rembemer glorious times of programming in Pascal). I propose to visually change `=` to proper assignment sign `≔`. I think it looks really nice and might help to visually catch improper operator in `if` statements.
+span.syntax--punctuation.syntax--definition.syntax--variable.syntax--php::after,
+span.syntax--variable.syntax--other.syntax--php+span.syntax--punctuation.syntax--definition.syntax--variable.syntax--php::before,
+span.syntax--punctuation.syntax--section.syntax--array.syntax--end.syntax--php+span.syntax--punctuation.syntax--definition.syntax--variable.syntax--php::before {
+  content: '\a0';  //< space
+}
 
-## Try this yourself!
+span.syntax--variable.syntax--other.syntax--php+span.syntax--punctuation.syntax--definition.syntax--variable.syntax--php::after,
+span.syntax--punctuation.syntax--section.syntax--array.syntax--end.syntax--php+span.syntax--punctuation.syntax--definition.syntax--variable.syntax--php::after {
+  content: '';
+}
+```
 
-Add content of [style.less](style.less) to your own Atom stylesheet (File -> Settings -> click on the link "your stylesheet" under "Choose a theme" title), *save changes* and open [examples.php](examples.php). Then open some true production source code *not* written by you and look around, make some edits.
+In actual editing work you might need some time to adapt to "automatic" space after dollar and after closing array bracket. Try to delete closing square bracket in `$var_9` example. I don't know at this time how to make this more intuitive. There is another problem with assingment sign, see `$eq_new_line` example.
 
-In actual editing work you might need some time to adapt to "automatic" space after dollar and after array closing bracket. Try to delete closing square bracket in `$var_9` example. I don't know at this time how to make this more intuitive. There is another problem with assingment sign, see `$eq_new_line` example.
+## Visual Studio Code
 
-## Try with ligatures!
+Open Command Palette (CTRL+SHIFT+P) and find "Open Settings (JSON)". Then add this to the JSON config:
 
-This alternative styling works fine with [Fira Code](https://github.com/tonsky/FiraCode) - a monotype font with programming ligatures which changes `->`, `=>`, `==`, `===` and other specific character groups into nice looking single character symbols.
+```json
+"editor.tokenColorCustomizations": {
+    "textMateRules": [
+    {
+        "scope": "punctuation.definition.variable.php",
+        "settings": {
+            "foreground": "#000",   // whatever hex color you want
+            "fontStyle": ""
+            // intellisense in the `""` (CTRL+Space) will tell what properities are supported
+            }
+        }
+    ]
+}
+```
+
+Remember about proper JSON syntax. See example [settings.json](settings.json).
+
+After that, save changes and open [examples.php](examples.php).
+
+
+
+## Thanks
+
+* Thank you, [Mark](https://stackoverflow.com/users/836330/mark), for [explaining how to achieve this](https://stackoverflow.com/a/72925504/925196) in VSC!

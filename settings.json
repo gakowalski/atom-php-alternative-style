@@ -1,0 +1,18 @@
+{
+    "workbench.colorTheme": "Atom One Light",
+    "editor.fontFamily": "'Fira Code'",
+    "editor.fontLigatures": true,
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "editor.tokenColorCustomizations": {
+      "textMateRules": [
+        {
+          "scope": "punctuation.definition.variable.php",
+          "settings": {
+            "foreground": "#000",   // whatever hex color you want
+            "fontStyle": ""
+            // intellisense in the `""` (CTRL+Space) will tell what properities are supported
+          }
+        }
+      ]
+    }
+}
